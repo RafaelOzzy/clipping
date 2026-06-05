@@ -1,0 +1,29 @@
+<div class="container mt-4">
+  <h1>Novo Clipping</h1>
+
+  <%= form_with model: @newsletter do |form| %>
+    <div class="mb-3">
+      <%= form.label :title, "Título", class: "form-label" %>
+      <%= form.text_field :title, class: "form-control" %>
+    </div>
+
+    <div class="mb-3">
+      <%= form.label :sent_at, "Data de Envio", class: "form-label" %>
+      <%= form.datetime_local_field :sent_at, class: "form-control" %>
+    </div>
+
+    <div class="mb-3">
+      <h5>Selecione os Artigos</h5>
+      <%= form.collection_check_boxes :article_ids, Article.all, :id, :title do |cb| %>
+        <div class="form-check">
+          <%= cb.check_box class: "form-check-input" %>
+          <%= cb.label class: "form-check-label" %>
+        </div>
+      <% end %>
+    </div>
+
+    <%= form.submit "Salvar", class: "btn btn-primary" %>
+  <% end %>
+
+  <%= link_to "Voltar", newsletters_path, class: "btn btn-secondary mt-2" %>
+</div>

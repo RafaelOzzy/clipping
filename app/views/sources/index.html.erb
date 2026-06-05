@@ -1,0 +1,27 @@
+<div class="container mt-4">
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h1>Fontes</h1>
+    <%= link_to "Nova Fonte", new_source_path, class: "btn btn-primary" %>
+  </div>
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Fontes</th>
+        <th>Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @sources.each do |source| %>
+        <tr>
+          <td><%= source.name %></td>
+          <td>
+            <%= link_to "Ver", source_path(source), class: "btn btn-sm btn-info" %>
+            <%= link_to "Editar", edit_source_path(source), class: "btn btn-sm btn-warning" %>
+            <%= link_to "Deletar", source_path(source), data: { turbo_method: :delete, turbo_confirm: "Tem certeza?" }, class: "btn btn-sm btn-danger" %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

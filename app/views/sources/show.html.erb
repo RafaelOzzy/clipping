@@ -1,0 +1,15 @@
+<div class="container mt-4">
+  <div class="card">
+    <div class="card-header">
+      <h1>Fonte</h1>
+    </div>
+    <div class="card-body">
+      <p><strong>Nome:</strong> <%= @source.name %></p>
+    </div>
+  </div>
+
+  <div class="mt-3">
+    <%= link_to "Editar", edit_source_path(@source), class: "btn btn-warning" %>
+    <%= link_to "Voltar", sources_path, class: "btn btn-secondary" %>
+  </div>
+</div>

@@ -1,0 +1,14 @@
+<div class="container mt-4">
+  <h1>Editar Categoria</h1>
+
+  <%= form_with model: @category do |form| %>
+    <div class="mb-3">
+      <%= form.label :name, "Nome", class: "form-label" %>
+      <%= form.text_field :name, class: "form-control" %>
+    </div>
+
+    <%= form.submit "Salvar", class: "btn btn-primary" %>
+  <% end %>
+
+  <%= link_to "Voltar", categories_path, class: "btn btn-secondary mt-2" %>
+</div>
