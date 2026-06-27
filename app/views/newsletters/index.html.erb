@@ -1,7 +1,9 @@
 <div class="container mt-4">
   <div class="d-flex justify-content-between align-items-center mb-4">
     <h1>Clippings</h1>
+    <% if current_user.admin? %>
     <%= link_to "Novo Clipping", new_newsletter_path, class: "btn btn-primary" %>
+    <% end %>
   </div>
 
   <table class="table table-striped">
@@ -21,8 +23,10 @@
           <td><%= newsletter.sent ? "Sim" : "Não" %></td>
           <td>
             <%= link_to "Ver", newsletter_path(newsletter), class: "btn btn-sm btn-info" %>
-            <%= link_to "Editar", edit_newsletter_path(newsletter), class: "btn btn-sm btn-warning" %>
-            <%= link_to "Deletar", newsletter_path(newsletter), data: { turbo_method: :delete, turbo_confirm: "Tem certeza?" }, class: "btn btn-sm btn-danger" %>
+            <% if current_user.admin? %>
+              <%= link_to "Editar", edit_newsletter_path(newsletter), class: "btn btn-sm btn-warning" %>
+              <%= link_to "Deletar", newsletter_path(newsletter), data: { turbo_method: :delete, turbo_confirm: "Tem certeza?" }, class: "btn btn-sm btn-danger" %>
+            <% end %>
           </td>
         </tr>
       <% end %>

@@ -1,4 +1,6 @@
 class SourcesController < ApplicationController
+  before_action :require_admin!
+  
   def index
     @sources = Source.all
   end
