@@ -11,5 +11,5 @@ Rails.application.routes.draw do
   resources :categories
   resources :newsletters
 
-  root "articles#index"
+  root "pages#home"
 end
