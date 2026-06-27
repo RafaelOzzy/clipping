@@ -1,12 +1,13 @@
-<nav class="navbar navbar-dark" style="background-color: #1a2b4a;">
-  <div class="container">
-    <a class="navbar-brand fw-bold fs-3" href="#">Clippings</a>
-    <div>
-      <%= link_to "Entrar", new_user_session_path, class: "btn btn-outline-light" %>
+<% unless user_signed_in? %>
+  <nav class="navbar navbar-dark" style="background-color: #1a2b4a;">
+    <div class="container">
+      <a class="navbar-brand fw-bold fs-3" href="#">Clippings</a>
+      <div>
+        <%= link_to "Entrar", new_user_session_path, class: "btn btn-outline-light" %>
+      </div>
     </div>
-  </div>
-</nav>
-
+  </nav>
+<% end %>
 <section class="text-center py-5" style="background-color: #f8f9fa;">
   <div class="container py-5">
     <h1 class="display-4 fw-bold mb-4">Há 20 anos mantendo você informado</h1>

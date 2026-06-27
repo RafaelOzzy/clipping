@@ -1,0 +1,32 @@
+<div class="container mt-4">
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h1>Usuários</h1>
+  </div>
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Email</th>
+        <th>Nome</th>
+        <th>Empresa</th>
+        <th>Role</th>
+        <th>Ativo</th>
+        <th>Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @users.each do |user| %>
+        <tr>
+          <td><%= user.email %></td>
+          <td><%= user.name %></td>
+          <td><%= user.company %></td>
+          <td><%= user.role %></td>
+          <td><%= user.active ? "Sim" : "Não" %></td>
+          <td>
+            <%= link_to "Editar", edit_user_path(user), class: "btn btn-sm btn-warning" %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

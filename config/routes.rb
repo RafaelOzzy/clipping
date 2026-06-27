@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   resources :articles
   resources :categories
   resources :newsletters
+  resources :users, only: [:index, :edit, :update]
 
   root "pages#home"
 end
